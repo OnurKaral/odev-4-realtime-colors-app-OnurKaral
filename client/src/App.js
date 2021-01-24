@@ -1,19 +1,26 @@
-import {useEffect } from "react";
+import {useEffect, useContext } from "react";
 import './App.css';
-import {io} from "socket.io-client";
+import ColorPicker from "./components/Colorpicker";
+import {initSocket, disconnectSocket,recieveColor} from "./socketServices"
+import SetColorContext from "./contexts/setColorContext";
 
 function App() {
+  const { color, setColor } = useContext(SetColorContext);
 
-useEffect(() => {
-const socket = io("http://localhost:3000", {
-  transports: ["websocket"]
-});
-socket.on("welcome",()=> console.log("Yeni kullanıcı"));
+  useEffect(() => {
+  initSocket();
+  recieveColor((color) => { setColor(color);
+  });
 
-}, []);
+  return () => disconnectSocket();
+}, [setColor]);
 
   return (
-    <div className="App"> </div>
+    <div  > 
+    <ColorPicker />
+  
+    </div>
   );
 }
+
 export default App;
