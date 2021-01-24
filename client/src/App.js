@@ -1,23 +1,17 @@
 import {useEffect, useContext } from "react";
 import './App.css';
-import ColorPicker from "./components/Colorpicker";
-import {initSocket, disconnectSocket,recieveColor} from "./socketServices"
-import SetColorContext from "./contexts/setColorContext";
+import Container from "./Container";
+import {SetColorProvider} from "./contexts/SetColorContext";
 
 function App() {
-  const { color, setColor } = useContext(SetColorContext);
-
-  useEffect(() => {
-  initSocket();
-  recieveColor((color) => { setColor(color);
-  });
-
-  return () => disconnectSocket();
-}, [setColor]);
-
   return (
     <div  > 
-    <ColorPicker />
+
+      <SetColorProvider>
+
+        <Container />
+        
+      </SetColorProvider>
   
     </div>
   );

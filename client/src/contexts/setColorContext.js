@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
-
-const SetColorContext = createContext("#fff");
+const SetColorContext = createContext(null);
 
 export const SetColorProvider = ({ children }) => {
   const [color, setColor] = useState("#fff");
