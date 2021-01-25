@@ -7,7 +7,7 @@ export const SetColorProvider = ({ children }) => {
   const values = {
     color,
     setColor,
-  };
+  }; 
   return (
     <SetColorContext.Provider value={values}>{children}</SetColorContext.Provider>
   );

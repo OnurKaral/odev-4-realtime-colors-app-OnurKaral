@@ -1,4 +1,4 @@
-import {useEffect, useContext } from "react";
+import {React} from "react";
 import './App.css';
 import Container from "./Container";
 import {SetColorProvider} from "./contexts/SetColorContext";

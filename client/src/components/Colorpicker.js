@@ -1,4 +1,4 @@
-import React ,{useContext, useState} from 'react';
+import React ,{useContext} from 'react';
 import { SketchPicker } from 'react-color';
 import styles from "../components/styles.module.css";
 import {sendcolor } from "../socketServices"
